@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Card = ({ item }) => {
@@ -9,7 +10,9 @@ const Card = ({ item }) => {
 
   return (
     <div className="card">
-      <img className="imagenDoc" src="../../public/images/doctor.jpg" alt="" />
+      <Link to= {'/detail/' + item.id}>
+        <img className="imagenDoc" src="/images/doctor.jpg" alt=""/>
+      </Link>
       <h3>{item.name}</h3>
       <h2>{item.username}</h2>
 

@@ -23,6 +23,13 @@ h1{
   text-align: center;
 }
 
+.infoDentist{
+background-color: #777;
+color: #fff;
+text-align: center;
+
+}
+
 nav{
   display: flex;
   width: 80vw;
