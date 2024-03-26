@@ -36,10 +36,10 @@ const Form = () => {
         <br />
         <button >Enviar</button>
       </form>}
-      {show && <h4>Gracias {user.name}, te contactaremos cuando antes via email </h4> }
+      {show && <h4 className="contact">Gracias {user.name}, te contactaremos cuando antes via email </h4> }
       {console.log(user.name)}
       {console.log(user.email)}
-      {err && <h4> Por favor verifique su información nuevamente</h4>}
+      {err && <h4 className="contact"> Por favor verifique su información nuevamente</h4>}
     </div>
   );
 };
