@@ -1,31 +1,53 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
 import axios from 'axios'
+import { useContexGlobal } from '../Context/global.context'
+
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
   
-  const [dentist, setDentist] = useState({})
+  
+  const {state, dispatch} = useContexGlobal()
+  const {infoDoc} = state
   const params = useParams()
   const url = `https://jsonplaceholder.typicode.com/users/${params.id}`
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-  console.log(url);
+  
   useEffect(() => {
     axios(url)
-    .then(res => setDentist(res.data))
+    .then(res => dispatch({type: 'GET_INFO', payload: res.data}))
 }, [])
-console.log(dentist);
+
   return (
-    <>
-      <h1>Detail Dentist id </h1>
-      <h3 className='infoDentist'>Nombre dentista: {dentist.name}</h3>
-      <h3 className='infoDentist'>Correo electronico : {dentist.email}</h3>
-      <h3 className='infoDentist'>Telefono: {dentist.phone}</h3>
-      <h3 className='infoDentist'>Pagina web: {dentist.website}</h3>
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
+    < >
+      <div className='tableInfo'>
+        <h1>Detail Dentist id </h1>
+        <img className="imagenDoc imgInfo" src="/images/doctor.jpg" alt=""/>
+        <table >
+          <thead>
+            <tr>
+              <th>Nombre dentista:</th>
+              <th>Correo electronico:</th>
+              <th >Telefono:</th>
+              <th >Pagina web:</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>            
+              <td>{infoDoc.name}</td>
+              <td>{infoDoc.email}</td>
+              <td>{infoDoc.phone}</td>
+              <td>{infoDoc.website}</td>                          
+            </tr> 
+          </tbody>              
+        </table>
+        <button onClick={() => dispatch({type: 'ADD_FAV', payload: infoDoc })} className="favButton">Add fav ❤️</button> 
+      </div>
+      
+      
     </>
   )
 }
