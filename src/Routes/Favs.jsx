@@ -9,10 +9,16 @@ const Favs = () => {
   const { state } = useContexGlobal()
   return (
     <>
-      <h1>Dentists Favs</h1>
-      <div className="card-grid">
-        {state.favs.map((fav) => <Card  key={fav.id} item={fav}/>)}        
+      <div className="favs">
+          <div className={!state.theme && 'dark'}>
+            <h1>Dentists Favs</h1>
+            <div className="card-grid">
+            {state.favs.map((fav) => <Card  key={fav.id} item={fav}/>)}        
+            </div>
+          </div>
       </div>
+      
+      
     </>
   );
 };

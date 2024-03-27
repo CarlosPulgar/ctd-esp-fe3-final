@@ -7,8 +7,8 @@ export const ContextGlobal = createContext();
   const initialState = {
     docList: [],
     infoDoc:{},
-    favs: JSON.parse(localStorage.getItem('favs')) || []
-  
+    favs: JSON.parse(localStorage.getItem('favs')) || [],
+    theme: 'false'
 }
 
 const ContextProvider = ({ children }) => {

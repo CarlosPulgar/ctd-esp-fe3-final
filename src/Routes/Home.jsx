@@ -9,7 +9,7 @@ const Home = () => {
   
 
   return (
-    <main className="" >
+    <main className={!state.theme && 'dark'} >
       <h1>Home</h1>
       <div className='card-grid'>
         {state.docList.map((item) => <Card key={item.id} item={item}/>)}

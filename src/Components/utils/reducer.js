@@ -10,5 +10,7 @@ export const reducer= (state, action) =>{
         case 'DELETE_FAV':
             const filteredFavs = state.favs.filter((fav) => fav.id !== action.payload)
             return {...state, favs: filteredFavs}
+        case 'TOGGLE_THEME' :
+            return {...state, theme: !state.theme}    
     }
 }

@@ -22,6 +22,7 @@ const Detail = () => {
 
   return (
     < >
+    <div className={!state.theme && 'dark'} >
       <div className='tableInfo'>
         <h1>Detail Dentist id </h1>
         <img className="imagenDoc imgInfo" src="/images/doctor.jpg" alt=""/>
@@ -46,6 +47,8 @@ const Detail = () => {
         </table>
         <button onClick={() => dispatch({type: 'ADD_FAV', payload: infoDoc })} className="favButton">Add fav ❤️</button> 
       </div>
+    </div>
+      
       
       
     </>

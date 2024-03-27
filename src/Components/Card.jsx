@@ -11,12 +11,14 @@ const Card = ({item}) => {
   return (
     <div className="card">
       <Link to= {'/detail/' + item.id}>
-        <img className="imagenDoc" src="/images/doctor.jpg" alt=""/>
+       
+        <img  className="imagenDoc" src="/images/doctor.jpg" alt=""/>
+              
       </Link>
       <h3>{item.name}</h3>
       <h2>{item.username}</h2> 
       { location.pathname == '/favs' &&
-          <button onClick={() => dispatch({type: 'DELETE_FAV', payload: item.id})}>
+          <button className="deleteButtom" onClick={() => dispatch({type: 'DELETE_FAV', payload: item.id})}>
           delete fav
         </button>}     
 

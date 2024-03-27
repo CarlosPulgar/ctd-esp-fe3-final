@@ -25,16 +25,16 @@ const Form = () => {
   }
 
   return (
-    <div>
+    <div >
       {!show && <form onSubmit={handleclick}>
         <label >Nombre completo</label>
         <input type="text" onChange={({target}) => setUser({...user, name:target.value })} placeholder="Ingrese su nombre"   />
         {console.log(user)}
-        <br />
+        
         <label>Email </label>
         <input role="email" type="email" onChange={({target}) => setUser({...user, email:target.value })} placeholder="Ingrese su email" />
-        <br />
-        <button >Enviar</button>
+        
+        <button className="send" >Enviar</button>
       </form>}
       {show && <h4 className="contact">Gracias {user.name}, te contactaremos cuando antes via email </h4> }
       {console.log(user.name)}
